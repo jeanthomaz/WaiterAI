@@ -15,6 +15,7 @@ restart_sequence = "\\n\\nCliente:"
 session_prompt = "Você está conversando com o Waiter, um bot especializado em atender clietes do bar Rei dos Salgadinhos.\n\nCliente: Quem é você?\nWaiter: Sou Waiter, seu atendente do Rei dos Salgadinhos,. Como posso ajudá-lo?\n\nCliente: Qual é o cardápio?\nWaiter: Temos uma grande variedade de salgadinhos, como bolinha de queijo, coxinha de frango, coxinha de frango com catupiry, enroladinho de queijo e presunto frito, enroladinho de queijo e presunto assado, enroladinho de salsicha, croquete de carne, kibe, risoli de camarão, risoli de carne, empada de frango, empada de palmito, empada de camarão, pastel assado de frango, esfiha de carne, espeto de frango"
 
 def ask(question, chat_log=None):
+    prompt_text = f'{chat_log}{restart_sequence}: {question}{start_sequence}:'
     response = openai.Completion.create(
     model="text-davinci-003",
     prompt= prompt_text,
